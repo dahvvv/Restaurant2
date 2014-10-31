@@ -1,0 +1,16 @@
+<nav class="navbar">
+  <span id="menu"><a href="/">Back Home</a></span>
+</nav>
+
+<h1>LOG-IN</h1>
+
+<form action="/sessions" method="post">
+  <input type="text" name="manager[username]" placeholder="username">
+  <input type="password" name="password" placeholder="password">
+  <input type="submit" value="log-in">
+</form>
+
+<footer class="footer">
+  <span id="receipt_history"><a href="/receipt_history">Receipt History</a></span>
+  <span id="mgr_login"><a href="/sessions/new">Manager Log-In</a></span>
+</footer>

@@ -1,0 +1,30 @@
+<nav class="navbar">
+  <span class="auth" id="menu"><a href="/foods">Menu</a></span>
+  <span class="auth" id="chef"><a href="/chef_view">Chef</a></span>
+</nav>
+<span class="auth" id="pic"><a href="/managers/<%= current_manager.id %>"><img class="lil_avatar" src="<%=current_manager.avatar_url%>" alt=""></a></span>
+
+<div class="form">
+  <h1>Edit Your Info</h1>
+  <form action="/managers/<%=@manager.id%>" method="post">
+    <input type="hidden" name="_method" value="patch" />
+    <label for="manager[username]">Username</label>
+    <input class="edit_party" type="text" name="manager[username]" value="<%=@manager.username%>" />
+    <br>
+    <label for="manager[avatar_url]">Avatar Url</label>
+    <input class="edit_party" type="text" name="manager[avatar_url]" value="<%=@manager.avatar_url%>" />
+    <br>
+    <label for="new_password">Edit Password</label>
+    <input class="edit_party" type="password" name="new_password" value="<%=@manager.password%>" />
+    <br>
+    <input type="submit">
+  </form>
+</div>
+
+<footer class="footer">
+  <span id="receipt_history"><a href="/receipt_history">Receipt History</a></span>
+  <form id="log_out" action="/sessions" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Log-Out">
+  </form>
+</footer>

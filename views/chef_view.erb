@@ -1,0 +1,42 @@
+<nav class="navbar">
+  <span class="auth" id="chef"><a href="/">Back Home</a></span>
+  <span class="auth" id="menu"><a href="/foods">Menu</a></span>
+</nav>
+<span class="auth" id="pic"><a href="/managers/<%= current_manager.id %>"><img class="lil_avatar" src="<%=current_manager.avatar_url%>" alt=""></a></span>
+
+<div class="chefview_body">
+  <h1 class="items">ITEMS TO PREPARE</h1>
+  <table>
+    <th>QUEUE</th>
+    <th>ITEM</th>
+    <th>TIME ENTERED</th>
+    <% @orders.each do |order| %>
+      <tr>
+         <td>
+          <%=order.id%>
+        </td>
+        <td>
+          <%=Food.find(order.food_id).name%>
+        </td>
+        <td>
+          <%=order.created_at.strftime("%l:%M%p, %^b %-d %Y")%>
+        </td>
+        <td>
+          <form action="/chef_view" method="post">
+            <input type="hidden" name="id" value="<%=order.id%>">
+            <input type="hidden" name="ready" value="true">
+            <input type="submit" value="READY!" />
+          </form>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<footer class="footer">
+  <span id="receipt_history"><a href="/receipt_history">Receipt History</a></span>
+  <form id="log_out" action="/sessions" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Log-Out">
+  </form>
+</footer>

@@ -1,0 +1,52 @@
+<nav class="navbar">
+  <span id="menu"><a href="/">Back Home</a></span>
+</nav>
+
+<% if current_manager %>
+  <nav class="navbar">
+    <span class="auth" id="menu"><a href="/">Back Home</a></span>
+    <span class="auth" id="chef"><a href="/chef_view">Chef</a></span>
+  </nav>
+  <span class="auth" id="pic"><a href="/managers/<%= current_manager.id %>"><img class="lil_avatar" src="<%=current_manager.avatar_url%>" alt=""></a></span>
+<% else %>
+  <nav class="navbar">
+    <span id="menu"><a href="/">Back Home</a></span>
+  </nav>
+<% end %>
+
+<h1>Menu</h1>
+<table class="display_foods">
+  <th> </th>
+  <th> </th>
+  <th> </th>
+  <th> </th>
+  <th>Allergens?</th>
+  <% @foods.each do |food| %>
+    <tr>
+      <td><img class="food_pic" src="<%= food.img_url %>" alt="" /></td>
+      <% if current_manager %>
+      <td><a href="/foods/<%=food.id%>/edit"><%= food.name %></a></td>
+      <% else %>
+      <td><%= food.name %></td>
+      <% end %>
+      <td><%= food.cuisine_type %></td>
+      <td>$<%= food.price_from_db %></td>
+      <td><%= food.allergens %></td>
+    </tr>
+  <% end %>
+</table>
+
+<% if current_manager %>
+  <footer class="footer">
+    <span id="receipt_history"><a href="/receipt_history">Receipt History</a></span>
+    <form id="log_out" action="/sessions" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Log-Out">
+    </form>
+  </footer>
+<% else %>
+  <footer class="footer">
+    <span id="receipt_history"><a href="/receipt_history">Receipt History</a></span>
+    <span id="mgr_login"><a href="/sessions/new">Manager Log-In</a></span>
+  </footer>
+<% end %>

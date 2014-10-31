@@ -1,0 +1,20 @@
+<nav class="navbar">
+  <span id="menu"><a href="/">Back Home</a></span>
+</nav>
+
+<div class="form">
+  <div class="innerform" id="add_party">
+  <h1 class="add_party">ADD A NEW PARTY AT TABLE <%= @table_number %></h1>
+  <form action="/parties" method="post">
+    <input type="hidden" name="party[table_number]" value="<%= @table_number %>" />
+    <input class="new_party" type="text" name="party[guests]" placeholder="number of guests" />
+    <br><br>
+    <input type="submit" value="ADD!">
+  </form>
+  </div>
+</div>
+
+<footer class="footer">
+  <span id="receipt_history"><a href="/receipt_history">Receipt History</a></span>
+  <span id="mgr_login"><a href="/sessions/new">Manager Log-In</a></span>
+</footer>

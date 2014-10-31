@@ -1,0 +1,39 @@
+<h2><u>Receipt for Table <%=@party.table_number%></u></h2>
+
+<ul class="receipt_print">
+  <% @orders.each do |order| %>
+    <li>
+      <%=order.food_name%>:  $<%=order.charge%>
+    </li>
+  <% end %>
+</ul>
+
+TOTAL:  $<%=@total%>
+<br>
+TIP:  ___________________
+<br>
+TOTAL:  ___________________
+<br>
+<em>Suggested Tips:</em>
+<br>
+<em>25% = $<%=(@total.to_f * 0.25).round(2)%></em>
+<br>
+<em>20% = $<%=(@total.to_f * 0.2).round(2)%></em>
+<br>
+<em>15% = $<%=(@total.to_f * 0.15).round(2)%></em>
+
+<br><br>
+<h2 class="warning"><em>Double check that everything is correct!</em></h2>
+<br>
+
+<h2 class="receipts_index">...and then 
+  <a href="/receipt.txt" download>Download The Receipt</a> or 
+  <form class="inline" action="/parties/<%=@party.id%>" method="get">
+    <input type="hidden" name="party_id" value="<%=@party.id%>">
+    <input class="delete_party" type="submit" value="Make Some Edits" />
+  </form>
+</h2>
+
+<footer class="footer">
+  <span id="home_centered"><a href="/">BACK HOME</a></span>
+</footer>

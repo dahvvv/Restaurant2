@@ -1,0 +1,39 @@
+<nav class="navbar">
+  <span class="double_header" id="home"><a href="/">Back Home</a></span>
+  <span class="double_header" id="menu"><a href="/foods">Menu</a></span>
+</nav>
+
+<div class="new_order">
+  <h1>PLACE AN ORDER FOR TABLE <%=@party.table_number%></h1>
+
+  <form class="orders_new" action="/orders" method="post">
+    <% @foods.each do |food| %>
+      <input type="radio" name="order[food_id]" value="<%=food.id%>"><%= food.name %> - $<%= food.price_from_db %><br></input>
+    <% end %>
+    <br>
+    <input type="checkbox" name="order[no_charge]" value="true">No Charge?</input>
+    <br><br>
+    <input type="hidden" name="order[party_id]" value="<%=@party.id%>" />
+    <input type="submit">
+  </form>
+</div>
+
+<div class="order_so_far">
+  <h2>Table <%=@party.table_number%>'s Order So Far</h2>
+  <% if @orders.count > 0 %>
+    <ul>
+      <% @orders.each do |order| %>
+        <li>
+          <%=order.food_name%>  $<%=order.charge%>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <em>No orders yet!</em>
+  <% end %>
+</div>
+
+<footer class="footer">
+  <span id="receipt_history"><a href="/receipt_history">Receipt History</a></span>
+  <span id="mgr_login"><a href="/sessions/new">Manager Log-In</a></span>
+</footer>

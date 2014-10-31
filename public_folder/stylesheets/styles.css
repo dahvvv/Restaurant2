@@ -1,0 +1,356 @@
+body {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-color: #b0c6d9;
+  color: rgb(54,50,150);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+}
+
+nav {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 65px;
+  background-color: antiquewhite;
+  font-size: 1.8em;
+}
+
+span.auth#pic img {
+  position: relative;
+  height: 75px;
+  border-radius: 25%;
+}
+
+.mainpage {
+  margin-top: 65px;
+  height: 700px;
+}
+
+.mainpage_auth {
+  margin-top: 0px;
+  height: 700px;
+}
+
+a:link {
+  text-decoration: none;
+  color: rgb(83,20,145);
+}
+
+a:visited {
+  text-decoration: none;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+ul {
+  list-style-type: none;
+  font-size: 2em;
+}
+
+li {
+  margin: 0.3em;
+}
+
+li.paid {
+  color: green;
+}
+
+ul.receipt_print li {
+  font-size: 0.5em;
+}
+
+h2.warning {
+  color: red;
+}
+
+div.table {
+  height: 140px;
+  width: 140px;
+  margin: 13px 36px;
+  border-radius: 100%;
+  float: left;
+  display: inline-block;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+div.table#three{
+  position: relative;
+  top: 11em;
+  right: 13.15em;
+}
+
+div.table#one{
+  height: 300px;
+  width: 300px;
+  position: relative;
+  top: 0em;
+  right: 11em;
+}
+
+div.table#two{
+  height: 300px;
+  width: 300px;
+  position: relative;
+  top: 0em;
+  right: 7em;
+}
+
+div.table#eleven{
+  float: right;
+  position: relative;
+  top: -21em;
+  right: 0.2em;
+}
+
+div.table#twelve{
+  float: right;
+  position: relative;
+  top: -10em;
+  right: -13.2em;
+}
+
+div.table h3.big{
+  margin-top: 1.5em;
+}
+
+div.table.grey {
+  background-color: grey;
+}
+
+div.table.blue {
+  background-color: rgb(24,116,205);
+}
+
+div.table.red {
+  background-color: red;
+}
+
+div.table.green {
+  background-color: green;
+}
+
+.indiv_table.false {
+  background-color: rgb(205,55,0);
+}
+
+
+.table_num {
+  margin-top: 30px;
+  font-size: 4em;
+}
+
+.guests_num {
+  display: block;
+  font-size: 1.1em;
+  margin-top: -72px;
+}
+
+table.display_foods {
+  margin: auto;
+  width: 45em;
+  font-size: 1.2em;
+}
+
+table.display_foods th {
+  margin-bottom: 2.5em;
+  text-align: left;
+}
+
+table.display_foods td {
+  text-align: left;
+}
+
+img.food_pic {
+  height: 3em;
+  width: 3em;
+  border-radius: 25%
+}
+
+div.form h1 {
+  position: relative;
+  top: 2em;
+  font-size: 2.5em;
+}
+
+div.form form {
+  position: relative;
+  top: 2em;
+  font-size: 2.5em;
+}
+
+div.new_order h1 {
+  position: relative;
+  top: 2em;  
+}
+
+div.new_order form {
+  position: relative;
+  top: 4em;  
+}
+
+div.order_so_far {
+  position: relative;
+  top: 4em;
+}
+
+div.parties_show li {
+  font-size: 1em;
+}
+
+li {
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+ul.receipts_list li {
+  font-size: 0.8em;
+}
+
+h3#parties_show {
+  position: relative;
+  top: 2em;
+}
+
+ul.parties_show {
+  font-size: 1.3em;
+  position: relative;
+  top: 3em;
+}
+
+form.party_show {
+  font-size: 1em;
+  color: black;
+  position: relative;
+  top: 12em;
+}
+
+form.inline {
+  display: inline;
+  padding: 0px;
+  margin: -4px;
+}
+
+form.inline input {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  color: rgb(83,20,145);
+  font-size: 1em;
+}
+
+div.parties_show {
+  display: block;
+}
+
+form.delivery {
+  display: inline;
+}
+form.delivery input {
+  display: inline;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 55px;
+  background-color: antiquewhite;
+  font-size: 1.8em;
+}
+
+div.low_forms {
+  position: absolute;
+  bottom: 40%;
+  width: 100%;
+}
+
+span#menu {
+  position: relative;
+  bottom: -13px;
+}
+
+span#home_centered {
+  position: relative;
+  bottom: -13px;
+}
+
+span.double_header#home {
+  position: relative;
+  bottom: -13px;
+  left: -200px;
+}
+
+span.auth#menu {
+  position: relative;
+  bottom: -13px;
+  left: -200px;
+}
+
+span.auth#chef {
+  position: relative;
+  bottom: -13px;
+  right: -200px;
+}
+
+span.double_header#menu {
+  right: -200px;
+}
+
+span#receipt_history {
+  position: relative;
+  bottom: -13px;
+  left: -150px;
+}
+
+span#mgr_login {
+  position: relative;
+  bottom: -13px;
+  right: -150px;
+}
+
+span#new_mgr {
+  position: relative;
+  bottom: -13px;
+  right: 3em;
+}
+
+footer form#log_out input {
+  position: relative;
+  font-size: 1em;
+  color: rgb(83,20,145);
+  top: -24px;
+  right: -220px;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+}
+
+div.edit_order li {
+  font-size: 0.8em;
+}
+
+.chefview_body {
+  position: relative;
+  top: 4em;
+}
+
+.chefview_body table {
+  width: 60%;
+  margin: auto;
+}
+
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}

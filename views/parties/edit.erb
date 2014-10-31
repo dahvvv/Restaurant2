@@ -1,0 +1,22 @@
+<nav class="navbar">
+  <span class="double_header" id="home"><a href="/">Back Home</a></span>
+  <span class="double_header" id="menu"><a href="/foods">Menu</a></span>
+</nav>
+
+<div class="form">
+  <h1>Edit Party</h1>
+  <form action="/parties/<%=@party.id%>" method="post">
+    <input type="hidden" name="_method" value="patch" />
+    <label for="party[name]">Table Number</label>
+    <input class="edit_party" type="text" name="party[table_number]" value="<%=@party.table_number%>" />
+    <br>
+    <label for="party[guests]">Number Of Guests</label>
+    <input class="edit_party" type="text" name="party[guests]" value="<%=@party.guests%>" />
+    <br>
+    <input type="submit">
+  </form>
+</div>
+<footer class="footer">
+  <span id="receipt_history"><a href="/receipt_history">Receipt History</a></span>
+  <span id="mgr_login"><a href="/sessions/new">Manager Log-In</a></span>
+</footer>

@@ -1,0 +1,28 @@
+<h1>EDIT YOUR ORDER</h1>
+
+<div class="edit_order">
+  <ul>
+    <li><%=@order.food_name%></li>
+    <li>$<%=@order.charge%></li>
+    <li><%=@order.ready != true ? "Not Yet Fired" : "Has Been Fired"%></li>
+    <li><%=@order.delivered != true ? "Not Yet Delivered" : "Has Been Delivered"%></li>
+    <li>first entered at <%=@order.created_at%></li>
+  </ul>
+</div>
+<br>
+
+<form action="/orders/<%=@order.id%>" method="post">
+  <input type="hidden" name="_method" value="patch" />
+  <% @foods.each do |food| %>
+    <input type="radio" name="order[food_id]" value="<%=food.id%>"><%= food.name %> - $<%= food.price_from_db %><br></input>
+  <% end %>
+  <br><br>
+  <input type="radio" name="order[no_charge]" value="false">Charge</input>
+  <input type="radio" name="order[no_charge]" value="true">No Charge</input>
+  <br>
+  <input type="hidden" name="order[party_id]" value="<%=@order.party_id%>" />
+  <input type="hidden" name="order[ready]" value="<%=@order.ready%>" />
+  <input type="hidden" name="order[delivered]" value="<%=@order.delivered%>" />
+  <br><br>
+  <input type="submit">
+</form>

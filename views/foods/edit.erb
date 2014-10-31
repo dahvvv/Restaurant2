@@ -1,0 +1,35 @@
+<nav class="navbar">
+  <span class="auth" id="menu"><a href="/foods">Menu</a></span>
+  <span class="auth" id="chef"><a href="/chef_view">Chef</a></span>
+</nav>
+<span class="auth" id="pic"><a href="/managers/<%= current_manager.id %>"><img class="lil_avatar" src="<%=current_manager.avatar_url%>" alt=""></a></span>
+  <h1>Edit <%=@food.name%></h1>
+<form action="/foods/<%=@food.id%>" method="post">
+  <input type="hidden" name="_method" value="patch" />
+  <label for="food[name]">Food Name</label>
+  <input type="text" name="food[name]" value="<%=@food.name%>" />
+  <br>
+  <label for="food[cuisine_type]">Cuisine Type</label>
+  <input type="text" name="food[cuisine_type]" value="<%=@food.cuisine_type%>" />
+  <br>
+  <label for="food[cents]">Price in Cents</label>
+  <input type="text" name="food[cents]" value="<%=@food.cents%>">
+  <br>
+  <label for="food[allergens]">Allergens</label>
+  <input type="text" name="food[allergens]" value="<%=@food.allergens%>" />
+  <br>
+  <label for="food[img_url]">Img Url</label>
+  <input type="text" name="food[img_url]" value="<%=@food.img_url%>" />
+  <br>
+  <label for="food[to_kitchen]">To Kitchen? (true/false)</label>
+  <input type="text" name="food[to_kitchen]" value="<%=@food.to_kitchen%>" />
+  <input type="submit">
+</form>
+
+<footer class="footer">
+  <span id="receipt_history"><a href="/receipt_history">Receipt History</a></span>
+  <form id="log_out" action="/sessions" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Log-Out">
+  </form>
+</footer>

@@ -1,0 +1,27 @@
+<nav class="navbar">
+  <span id="menu"><a href="/">Back Home</a></span>
+</nav>
+
+<div class="form">
+  <div class="innerform" id="add_party">
+  <h1 class="add_party">ADD A NEW MANAGER</h1>
+  <form action="/managers" method="post">
+    <input class="new_party" type="text" name="manager[username]" placeholder="Username" />
+    <br><br>
+    <input class="new_party" type="password" name="password" placeholder="Password" />
+    <br><br>
+    <input class="new_party" type="text" name="manager[avatar_url]" placeholder="Avatar Url" />
+    <br><br>
+    <input type="submit" value="ADD!">
+  </form>
+  </div>
+</div>
+
+<footer class="footer">
+  <span id="receipt_history"><a href="/receipt_history">Receipt History</a></span>
+  <span id="new_mgr"><a href="/managers/new">Add Manager</a></span>
+  <form id="log_out" action="/sessions" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Log-Out">
+  </form>
+</footer>

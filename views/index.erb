@@ -1,0 +1,229 @@
+<% if current_manager %>
+  <nav class="navbar">
+    <span class="auth" id="menu"><a href="/foods">Menu</a></span>
+    <span class="auth" id="chef"><a href="/chef_view">Chef</a></span>
+  </nav>
+  <span class="auth" id="pic"><a href="/managers/<%= current_manager.id %>"><img class="lil_avatar" src="<%=current_manager.avatar_url%>" alt=""></a></span>
+<% else %>
+  <nav class="navbar">
+    <span id="menu"><a href="/foods">Menu</a></span>
+  </nav>
+<% end %>
+
+<% if current_manager %>
+  <% divclass = "mainpage_auth" %>
+<% else %>
+  <% divclass = "mainpage" %>
+<% end %>
+
+<div class="<%= divclass %>">  
+  <% party_v = Party.from_table(5)%>
+  <% status_v = Party.status(5) %>
+  <% if status_v == "grey" %>
+    <% link = "/parties/new/5" %>
+  <% else %>
+    <% link = "/parties/#{party_v.id}" %>
+  <% end %>
+  <a href="<%= link %>">
+    <div id="five" class="table <%= status_v %>">
+      <h3 class="table_num cf">5</h3>
+      <% if status_v != "grey" %>
+        <span class="guests_num"><%= party_v.guests %> GUESTS</span>
+      <% end %>
+    </div>
+  </a>
+
+  <% party_vi = Party.from_table(6)%>
+  <% status_vi = Party.status(6) %>
+  <% if status_vi == "grey" %>
+    <% link = "/parties/new/6" %>
+  <% else %>
+    <% link = "/parties/#{party_vi.id}" %>
+  <% end %>
+  <a href="<%= link %>">
+    <div id="six" class="table <%= status_vi %>">
+      <h3 class="table_num cf">6</h3>
+      <% if status_vi != "grey" %>
+        <span class="guests_num"><%= party_vi.guests %> GUESTS</span>
+      <% end %>
+    </div>
+  </a>
+
+  <% party_vii = Party.from_table(7)%>
+  <% status_vii = Party.status(7) %>
+  <% if status_vii == "grey" %>
+    <% link = "/parties/new/7" %>
+  <% else %>
+    <% link = "/parties/#{party_vii.id}" %>
+  <% end %>
+  <a href="<%= link %>">
+    <div id="seven" class="table <%= status_vii %>">
+      <h3 class="table_num cf">7</h3>
+      <% if status_vii != "grey" %>
+        <span class="guests_num"><%= party_vii.guests %> GUESTS</span>
+      <% end %>
+    </div>
+  </a>
+
+  <% party_viii = Party.from_table(8)%>
+  <% status_viii = Party.status(8) %>
+  <% if status_viii == "grey" %>
+    <% link = "/parties/new/8" %>
+  <% else %>
+    <% link = "/parties/#{party_viii.id}" %>
+  <% end %>
+  <a href="<%= link %>">
+    <div id="eight" class="table <%= status_viii %>">
+      <h3 class="table_num cf">8</h3>
+      <% if status_viii != "grey" %>
+        <span class="guests_num"><%= party_viii.guests %> GUESTS</span>
+      <% end %>
+    </div>
+  </a>
+
+  <% party_ix = Party.from_table(9)%>
+  <% status_ix = Party.status(9) %>
+  <% if status_ix == "grey" %>
+    <% link = "/parties/new/9" %>
+  <% else %>
+    <% link = "/parties/#{party_ix.id}" %>
+  <% end %>
+  <a href="<%= link %>">
+    <div id="nine" class="table <%= status_ix %>">
+      <h3 class="table_num cf">9</h3>
+      <% if status_ix != "grey" %>
+        <span class="guests_num"><%= party_ix.guests %> GUESTS</span>
+      <% end %>
+    </div>
+  </a>
+
+  <% party_x = Party.from_table(10)%>
+  <% status_x = Party.status(10) %>
+  <% if status_x == "grey" %>
+    <% link = "/parties/new/10" %>
+  <% else %>
+    <% link = "/parties/#{party_x.id}" %>
+  <% end %>
+  <a href="<%= link %>">
+    <div id="ten" class="table <%= status_x %>">
+      <h3 class="table_num cf">10</h3>
+      <% if status_x != "grey" %>
+        <span class="guests_num"><%= party_x.guests %> GUESTS</span>
+      <% end %>
+    </div>
+  </a>
+
+  <% party_iv = Party.from_table(4)%>
+  <% status_iv = Party.status(4) %>
+  <% if status_iv == "grey" %>
+    <% link = "/parties/new/4" %>
+  <% else %>
+    <% link = "/parties/#{party_iv.id}" %>
+  <% end %>
+  <a href="<%= link %>">
+    <div id="four" class="table <%= status_iv %>">
+      <h3 class="table_num cf">4</h3>
+      <% if status_iv != "grey" %>
+        <span class="guests_num"><%= party_iv.guests %> GUESTS</span>
+      <% end %>
+    </div>
+  </a>
+
+  <% party_iii = Party.from_table(3)%>
+  <% status_iii = Party.status(3) %>
+  <% if status_iii == "grey" %>
+    <% link = "/parties/new/3" %>
+  <% else %>
+    <% link = "/parties/#{party_iii.id}" %>
+  <% end %>
+  <a href="<%= link %>">
+    <div id="three" class="table <%= status_iii %>">
+      <h3 class="table_num cf">3</h3>
+      <% if status_iii != "grey" %>
+        <span class="guests_num"><%= party_iii.guests %> GUESTS</span>
+      <% end %>
+    </div>
+  </a>
+
+  <% party_i = Party.from_table(1)%>
+  <% status_i = Party.status(1) %>
+  <% if status_i == "grey" %>
+    <% link = "/parties/new/1" %>
+  <% else %>
+    <% link = "/parties/#{party_i.id}" %>
+  <% end %>
+  <a href="<%= link %>">
+    <div id="one" class="table <%= status_i %>">
+      <h3 class="table_num big cf">1</h3>
+      <% if status_i != "grey" %>
+        <span class="guests_num"><%= party_i.guests %> GUESTS</span>
+      <% end %>
+    </div>
+  </a>
+
+  <% party_ii = Party.from_table(2)%>
+  <% status_ii = Party.status(2) %>
+  <% if status_ii == "grey" %>
+    <% link = "/parties/new/2" %>
+  <% else %>
+    <% link = "/parties/#{party_ii.id}" %>
+  <% end %>
+  <a href="<%= link %>">
+    <div id="two" class="table <%= status_ii %>">
+      <h3 class="table_num big cf">2</h3>
+      <% if status_ii != "grey" %>
+        <span class="guests_num"><%= party_ii.guests %> GUESTS</span>
+      <% end %>
+    </div>
+  </a>
+
+  <% party_xi = Party.from_table(11)%>
+  <% status_xi = Party.status(11) %>
+  <% if status_xi == "grey" %>
+    <% link = "/parties/new/11" %>
+  <% else %>
+    <% link = "/parties/#{party_xi.id}" %>
+  <% end %>
+  <a href="<%= link %>">
+    <div id="eleven" class="table <%= status_xi %>">
+      <h3 class="table_num cf">11</h3>
+      <% if status_xi != "grey" %>
+        <span class="guests_num"><%= party_xi.guests %> GUESTS</span>
+      <% end %>
+    </div>
+  </a>
+
+  <% party_xii = Party.from_table(12)%>
+  <% status_xii = Party.status(12) %>
+  <% if status_xii == "grey" %>
+    <% link = "/parties/new/12" %>
+  <% else %>
+    <% link = "/parties/#{party_xii.id}" %>
+  <% end %>
+  <a href="<%= link %>">
+    <div id="twelve" class="table <%= status_xii %>">
+      <h3 class="table_num cf">12</h3>
+      <% if status_xii != "grey" %>
+        <span class="guests_num"><%= party_xii.guests %> GUESTS</span>
+      <% end %>
+    </div>
+  </a>
+
+</div>
+
+<% if current_manager %>
+  <footer class="auth">
+    <span id="receipt_history"><a href="/receipt_history">Receipt History</a></span>
+    <span id="new_mgr"><a href="/managers/new">Add Manager</a></span>
+    <form id="log_out" action="/sessions" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Log-Out">
+    </form>
+  </footer>
+<% else %>
+  <footer class="footer">
+    <span id="receipt_history"><a href="/receipt_history">Receipt History</a></span>
+    <span id="mgr_login"><a href="/sessions/new">Manager Log-In</a></span>
+  </footer>
+<% end %>
+

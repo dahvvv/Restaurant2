@@ -1,0 +1,26 @@
+<a href="/">Back to Home</a>
+<br>
+<h1>HISTORY OF RECEIPTS</h1>
+
+<% @receipts.each do |receipt| %>
+  <h2><%=receipt.created_at.strftime("%l:%M%p, %^b %-d %Y")%></h2>
+  <h3>Receipt For Table Number <%=receipt.table_number%></h3>
+  <%receipt.food_list.delete! "[" %>
+  <%receipt.food_list.delete! "]" %>
+  <%receipt.food_list.delete! ":" %>
+  <% foods = receipt.food_list.split(',')%>
+  <%receipt.price_list.delete! "[" %>
+  <%receipt.price_list.delete! "]" %>
+  <%receipt.price_list.delete! ":" %>
+  <% prices = receipt.price_list.split(',')%>
+  <ul class="receipts_list">
+    <% (0...foods.count).each do |n| %>
+      <li>
+        <%=foods[n].gsub("_", " ")%> - 
+        $<%=prices[n][-2] != "." ? prices[n] : prices[n] + "0"%>
+      </li>
+    <% end %>
+  </ul>
+  <h4>TOTAL:  $<%=receipt.total[-2] != "." ? receipt.total : receipt.total + "0"%></h4>
+<h6>------------------------------------------------------------</h6>
+<% end %> 

@@ -1,0 +1,86 @@
+<nav class="navbar">
+  <span class="double_header" id="home"><a href="/">Back Home</a></span>
+  <span class="double_header" id="menu"><a href="/foods">Menu</a></span>
+</nav>
+
+<div class="parties_show">
+  <ul class="parties_show">
+    <li>Table: <%=@party.table_number%></li>
+    <li>Guests: <%=@party.guests%></li>
+    <% if @party.paid == true %>
+      <li class="paid">Have Paid!</li>
+    <% else %>
+      <li>Not Yet Paid</li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="parties_show">
+  <% if @orders.count > 0 %>
+    <ul class="parties_show">
+      <% sum_cents = 0 %>
+      <% @orders.each do |order| %>
+        <li>
+          <a href="/orders/<%=order.id%>/edit"><%=order.food_name%> - $<%=order.charge%></a>
+          <% if order.ready == true && order.delivered == false %>
+            <em>FIRED!</em>
+            <form class="delivery" action="/orders/delivered/<%=order.id%>" method="post">
+              <input type="hidden" name="_method" value="patch">
+              <input type="submit" value="Click When Delivered">  
+            </form>
+          <% end %>
+        </li>
+      <% sum_cents += Food.find(order.food_id).cents if order.no_charge == false %>
+      <% end %>
+      <li>
+        <% if sum_cents < 10 %>
+          <% @total = "0.0" + sum_cents.to_s %>
+        <% elsif sum_cents < 100 %>
+          <% @total = "0." + sum_cents.to_s %>
+        <% else %>
+        <% @total = sum_cents.to_s[0..-3] + "." + sum_cents.to_s[-2..-1] %>
+        <% end %>
+        Total:  $<%=@total%>
+      </li>
+    </ul>
+  <% else %>
+    <ul class="parties_show">
+      <li>No Orders Yet</li>
+    </ul>
+  <% end %>
+</div>
+
+
+<div class="low_forms"/>
+  <form class="party_show" action="/orders/new" method="get">
+    <input type="hidden" name="party_id" value="<%=@party.id%>" />
+    <input type="submit" value="Add an Order" />
+  </form>
+
+  <form class="party_show" action="/parties/<%=@party.id%>/edit" method="get">
+    <input type="submit" value="Edit this Party" />
+  </form>
+
+  <form class="party_show" action="/parties/<%=@party.id%>/receipts" method="get">
+    <input type="hidden" name="total" value="<%=@total%>" />
+    <input type="submit" value="Create a Receipt" />
+  </form>
+
+  <form class="party_show" action="/parties/<%=@party.id%>/receipts" method="post">
+    <input type="hidden" name="receipt[table_number]" value="<%=@party.table_number%>" />
+    <input type="hidden" name="receipt[food_list]" value="<%= @party.food_names_for_receipt %>" />
+    <input type="hidden" name="receipt[price_list]" value="<%= @party.prices_for_receipt %>" />
+    <input type="hidden" name="receipt[total]" value="<%=@total.to_s%>" />
+    <input type="submit" value="Paid!" />
+  </form>
+
+  <form class="party_show" action="/parties/<%=@party.id%>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete this Party">
+  </form>
+</div>
+
+<footer class="footer">
+  <span id="receipt_history"><a href="/receipt_history">Receipt History</a></span>
+  <span id="mgr_login"><a href="/sessions/new">Manager Log-In</a></span>
+</footer>
